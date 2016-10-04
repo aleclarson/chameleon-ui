@@ -1,0 +1,82 @@
+
+// Lists
+// -------------------
+
+// Used in different places, like the Tree View, Commmand Palette etc.
+// Overrides: atom/static/lists.less
+
+@import "syntax-variables";
+
+// List Group -------------------
+.list-group {
+  li {
+    padding-left: @component-padding/2;
+
+    // We want to highlight the background of the list items because we dont know their size.
+    &.selected {
+      color: @syntax-text-color;
+      background-color: @syntax-background-color;
+      &:before{ display: none; }
+    }
+  }
+}
+
+.list-item {
+
+  &:hover {
+    color: @string;
+  }
+
+  &.selected {
+    color: lighten(@syntax-text-color, 10%);
+
+    &::before {
+      background-color: lighten(@syntax-background-color, 4%);
+    }
+
+    &:hover {
+      // color: lighten(@syntax-text-color, 20%);
+
+      &::before {
+        background-color: lighten(@syntax-background-color, 8%);
+      }
+    }
+  }
+}
+
+// List Tree -------------------
+// .list-tree {
+//   .selected {
+//     color: @syntax-text-color;
+//   }
+// }
+
+
+// Select List -------------------
+.select-list {
+  li {
+    padding: @component-padding/2 @component-padding;
+  }
+  .status {
+    float: right;
+  }
+}
+
+
+// Popover List -------------------
+// Used as a popover for something like autocomplete.
+.select-list.popover-list {
+  @popover-list-padding: @component-padding/2;
+
+  padding: @popover-list-padding;
+  border-radius: @component-border-radius;
+  background-color: @overlay-background-color;
+  box-shadow: 0 2px 8px 1px hsla(0,0%,0%,.3);
+
+  .list-group {
+    margin-top: @popover-list-padding;
+    li {
+      padding-left: @popover-list-padding;
+    }
+  }
+}
