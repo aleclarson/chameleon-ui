@@ -24,7 +24,7 @@
 .list-item {
 
   &:hover {
-    color: @string;
+    color: @syntax-text-highlight;
   }
 
   &.selected {
@@ -39,6 +39,20 @@
 
       &::before {
         background-color: lighten(@syntax-background-color, 8%);
+      }
+    }
+
+    &.status-modified {
+      color: @syntax-color-modified;
+
+      &::before {
+        background-color: #2D2442;
+      }
+
+      &:hover {
+        &::before {
+          background-color: lighten(#2D2442, 4%);
+        }
       }
     }
   }
